@@ -1,0 +1,117 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head> -->
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8  offset-2">
+            <br><br>
+    <h3>Create new list</h3>
+    <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+   
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" placeholder="Add a catchy Title" type="text" class="form-control" required>
+        <div class="valid-feedback"> Title Lokks Good!</div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+         <textarea name="listing[description]" placeholder="enter description" type="text" class="form-control" required></textarea>
+         <div class="invalid-feedback">Description should be Valid</div>
+    </div>
+    <!-- <div class="mb-3">
+         <label for="image" class="form-label">Image</label>
+         <input name="listing[image][url]" placeholder="enter image link/URL" type="text" class="form-control">
+    </div> -->
+    <div class="mb-3">
+         <label for="image" class="form-label">Upload Image</label>
+         <input name="listing[image]"  type="file" class="form-control" required>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>
+        <input name="listing[price]" placeholder="1200"  class="form-control" required>
+        <div class="invalid-feedback"> Price should be Valid</div>
+    </div>
+    <div class="mb-3 col-md-8">
+         <label for="country" class="form-label">Country</label>
+        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+        <div class="invalid-feedback"> Country name should be Valid</div>
+    </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="location" class="form-label">location</label>
+        <input name="listing[location]" placeholder="Bangalore" type="text" class="form-control" required>
+        <div class="invalid-feedback"> Location should be Valid</div>
+    </div>
+
+<div class="mb-3">
+  <label class="form-label">Select Categories</label>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      Choose Categories
+    </button>
+    <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+      <li><input type="checkbox" name="listing[category][]" value="Trending"> Trending</li>
+      <li><input type="checkbox" name="listing[category][]" value="Rooms"> Rooms</li>
+      <li><input type="checkbox" name="listing[category][]" value="Iconic Cities"> Iconic Cities</li>
+      <li><input type="checkbox" name="listing[category][]" value="Mountains"> Mountains</li>
+      <li><input type="checkbox" name="listing[category][]" value="Castles"> Castles</li>
+      <li><input type="checkbox" name="listing[category][]" value="Amazing Pools"> Amazing Pools</li>
+      <li><input type="checkbox" name="listing[category][]" value="Camping"> Camping</li>
+      <li><input type="checkbox" name="listing[category][]" value="Farms"> Farms</li>
+      <li><input type="checkbox" name="listing[category][]" value="Arctic"> Arctic</li>
+      <li><input type="checkbox" name="listing[category][]" value="Domes"> Domes</li>
+      <li><input type="checkbox" name="listing[category][]" value="Boats"> Boats</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+<!-- <div class="mb-3">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      Select Category
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" href="#">Trending</a></li>
+      <li><a class="dropdown-item" href="#">Rooms</a></li>
+      <li><a class="dropdown-item" href="#">Iconic Cities</a></li>
+      <li><a class="dropdown-item" href="#">Mountains</a></li>
+      <li><a class="dropdown-item" href="#">Castles</a></li>
+      <li><a class="dropdown-item" href="#">Amazing Pools</a></li>
+      <li><a class="dropdown-item" href="#">Camping</a></li>
+      <li><a class="dropdown-item" href="#">Farms</a></li>
+      <li><a class="dropdown-item" href="#">Arctic</a></li>
+      <li><a class="dropdown-item" href="#">Domes</a></li>
+      <li><a class="dropdown-item" href="#">Boats</a></li>
+    </ul>
+  </div>
+</div> -->
+
+
+    <br><br>
+    <button  class="btn btn-dark  add-btn">Add </button>
+    <br><br>
+    </form> 
+    </div>
+    </div>
+
+</body>
+<!-- <script src="/js/script.js"></script> -->
