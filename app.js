@@ -111,6 +111,17 @@ app.use((req,res,next)=>{
 // })
 
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
+
+// add here
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
+
 //to use routes in different file
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);

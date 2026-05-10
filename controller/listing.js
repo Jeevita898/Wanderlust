@@ -73,20 +73,41 @@ module.exports.renderEdit =async (req,res)=>{
 }
 
 module.exports.update= async(req,res)=>{
-    let { id}=req.params;
-    let listing=await Listing.findByIdAndUpdate(id,{...req.body.listing});
-//   console.log(req.file.path);
-//   console.log(req.file.filename);
-    if(typeof req.file !== "undefined"){
-   let url=req.file.path;
-   let filename= req.file.filename;
-   listing.image={url ,filename}
-   await listing.save();
-    }
+//     let { id}=req.params;
+//     let listing=await Listing.findByIdAndUpdate(id,{...req.body.listing});
+// //   console.log(req.file.path);
+// //   console.log(req.file.filename);
+//     if(typeof req.file !== "undefined"){
+//    let url=req.file.path;
+//    let filename= req.file.filename;
+//    listing.image={url ,filename}
+//    await listing.save();
+//     }
    
 
-    req.flash("success"," Listing Updated")
-    res.redirect(`/listings/${id}`);
+//     req.flash("success"," Listing Updated")
+//     res.redirect(`/listings/${id}`);
+
+  let { id } = req.params;
+
+  const response = await geocodingClient.geocoding.forward(
+    req.body.listing.location,
+    { limit: 1 }
+  );
+
+  req.body.listing.geometry = response.features[0].geometry;
+
+  let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+
+  if (typeof req.file !== "undefined") {
+    let url = req.file.path;
+    let filename = req.file.filename;
+    listing.image = { url, filename };
+    await listing.save();
+  }
+
+  req.flash("success", "Listing Updated");
+  res.redirect(`/listings/${id}`);
 }
 
 module.exports.destroy = async(req,res)=>{
